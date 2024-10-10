@@ -1,9 +1,12 @@
 import { Operator } from './operator';
+import { isValueEmpty } from './operators/is-value-empty';
 
 /**
  * Default operators.
  */
 export const defaultOperators = [
+  new Operator('empty', (value) => isValueEmpty(value)),
+  new Operator('notEmpty', (value) => !isValueEmpty(value)),
   new Operator('equals', (a, b) => a === b),
   new Operator('notEquals', (a, b) => a !== b),
   new Operator('in', (a, b) => a.indexOf(b) > -1),
